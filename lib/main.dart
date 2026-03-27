@@ -14,16 +14,13 @@ Future<void> main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
-  // final NewsRepositoryImpl newsRepository;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) =>
           sl<NewsBloc>()..add(FetchNews()), // Fetch news when the app starts
-
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'News App',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
