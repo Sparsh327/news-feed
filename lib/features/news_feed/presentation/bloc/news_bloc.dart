@@ -7,7 +7,7 @@ part 'news_event.dart';
 part 'news_state.dart';
 
 class NewsBloc extends Bloc<NewsEvent, NewsState> {
-  NewsBloc({required this.newsRepository}) : super(NewsInitial()) {
+  NewsBloc({required this.newsRepository, }) : super(NewsInitial()) {
     on<FetchNews>(_onFetchNews);
     on<RefreshNews>(_onRefreshNews);
     on<LoadMoreNews>(_onLoadMoreNews);

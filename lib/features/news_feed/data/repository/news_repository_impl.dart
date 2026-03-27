@@ -6,7 +6,7 @@ import 'package:news_app/features/news_feed/domain/repository/news_repository.da
 class NewsRepositoryImpl extends NewsRepository {
   final LocalDataSource localDataSource;
   final RemoteDataSource remoteDataSource;
-  NewsRepositoryImpl(this.localDataSource, this.remoteDataSource);
+  NewsRepositoryImpl({required this.localDataSource, required this.remoteDataSource});
   @override
   Future<NewsModel> fetchNews({int page = 1, int pageSize = 20}) {
     try {
@@ -34,5 +34,5 @@ class NewsRepositoryImpl extends NewsRepository {
     }
   }
 
-    
+
 }
