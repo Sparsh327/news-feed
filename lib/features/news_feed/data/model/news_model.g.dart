@@ -60,7 +60,7 @@ class ArticleAdapter extends TypeAdapter<Article> {
       urlToImage: fields[2] as String,
       publishedAt: fields[3] as String,
       content: fields[4] as String,
-      url: fields[6] as String,
+      url: fields[6] as String? ?? '',
     );
   }
 

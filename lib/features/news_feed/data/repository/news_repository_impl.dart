@@ -8,20 +8,18 @@ class NewsRepositoryImpl extends NewsRepository {
   final RemoteDataSource remoteDataSource;
   NewsRepositoryImpl({required this.localDataSource, required this.remoteDataSource});
   @override
-  Future<NewsModel> fetchNews({int page = 1, int pageSize = 20}) {
+  Future<NewsModel> fetchNews({int page = 1, int pageSize = 20}) async {
     try {
-      return remoteDataSource.fetchNews(page: page, pageSize: pageSize).then((news) {
-        if (page == 1) localDataSource.saveNews(news);
-        return news;
-      });
+      final news = await remoteDataSource.fetchNews(page: page, pageSize: pageSize);
+      if (page == 1) await localDataSource.saveNews(news);
+      return news;
     } catch (e) {
-      return localDataSource.getCachedNews().then((cachedNews) {
-        if (cachedNews != null) {
-          return cachedNews;
-        } else {
-          throw Exception('No cached news available: $e');
-        }
-      });
+      final cachedNews = await localDataSource.getCachedNews();
+      if (cachedNews != null) {
+        return cachedNews;
+      } else {
+        throw Exception('No cached news available: $e');
+      }
     }
   }
 

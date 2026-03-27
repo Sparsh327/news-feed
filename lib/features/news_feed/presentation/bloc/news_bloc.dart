@@ -53,7 +53,12 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
         ),
       );
     } catch (error) {
-      emit(NewsError(error.toString()));
+      final currentState = state;
+      if (currentState is NewsLoaded) {
+        emit(currentState);
+      } else {
+        emit(NewsError(error.toString()));
+      }
     }
   }
 
