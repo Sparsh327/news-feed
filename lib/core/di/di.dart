@@ -1,5 +1,4 @@
 import 'package:get_it/get_it.dart';
-import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:news_app/core/network/dio_client.dart';
 import 'package:news_app/features/news_feed/data/data_source/local_data_source.dart';

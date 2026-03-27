@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hive_flutter/adapters.dart';
+
 import 'package:news_app/core/di/di.dart';
-import 'package:news_app/features/news_feed/data/model/news_model.dart';
+
 import 'package:news_app/features/news_feed/presentation/bloc/news_bloc.dart';
 import 'package:news_app/features/news_feed/presentation/view/new_feed_view.dart';
 
 Future<void> main() async {
-
   // final box = await Hive.openBox<NewsModel>('newsBox');
   // final localDataSource = LocalDataSourceImpl(box);
   // final dioClient = DioClient();
@@ -28,8 +27,6 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   // final NewsRepositoryImpl newsRepository;
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
