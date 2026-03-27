@@ -7,19 +7,8 @@ import 'package:news_app/features/news_feed/presentation/bloc/news_bloc.dart';
 import 'package:news_app/features/news_feed/presentation/view/new_feed_view.dart';
 
 Future<void> main() async {
-  // final box = await Hive.openBox<NewsModel>('newsBox');
-  // final localDataSource = LocalDataSourceImpl(box);
-  // final dioClient = DioClient();
-  // final remoteDataSource = RemoteDataSourceImpl(dioClient: dioClient);
-  // final newsRepository = NewsRepositoryImpl(
-  //   localDataSource: localDataSource,
-  //   remoteDataSource: remoteDataSource,
-  // );
-
+  WidgetsFlutterBinding.ensureInitialized();
   await initDependencies();
-
-  // final newsRepository = sl<NewsRepository>();
-
   runApp(MyApp());
 }
 

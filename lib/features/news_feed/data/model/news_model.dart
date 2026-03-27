@@ -35,6 +35,8 @@ class Article extends HiveObject {
   final String content;
   @HiveField(5)
   final Source source;
+  @HiveField(6)
+  final String url;
 
   Article({
     required this.source,
@@ -43,6 +45,7 @@ class Article extends HiveObject {
     required this.urlToImage,
     required this.publishedAt,
     required this.content,
+    required this.url,
   });
   factory Article.fromJson(Map<String, dynamic> json) {
     return Article(
@@ -52,6 +55,7 @@ class Article extends HiveObject {
       urlToImage: json['urlToImage'] ?? '',
       publishedAt: json['publishedAt'] ?? '',
       content: json['content'] ?? '',
+      url: json['url'] ?? '',
     );
   }
 }
